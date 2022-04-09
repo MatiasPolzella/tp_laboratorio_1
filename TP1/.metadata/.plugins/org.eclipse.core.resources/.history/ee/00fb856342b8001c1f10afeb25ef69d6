@@ -1,0 +1,38 @@
+/*
+ ============================================================================
+ Name        : Trabajo Practico 1 - Agencia de Viajes
+ Author      : Matias Polzella
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+
+	setbuf(stdout,NULL);
+
+
+
+
+	do{
+
+
+
+
+
+
+
+	}while();
+
+
+
+
+
+
+
+	return 0;
+}
