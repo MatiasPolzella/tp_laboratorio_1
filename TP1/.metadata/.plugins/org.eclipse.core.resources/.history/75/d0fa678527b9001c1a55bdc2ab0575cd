@@ -22,7 +22,8 @@ int main()
 
     //la funcion devuelve un numero negativo (-1) para indicar que no pudo obtener un numero, y un cero para indicar que si lo obtuvo
     do{
-        respuesta = utn_getNumero(&opcion,"\n     BIENVENIDOS     \n "
+        respuesta = utn_getNumero(&opcion,"\n\n            BIENVENIDOS     \n\n "
+                          "\n     Por favor, ingrese una de las siguientes opciones: "
                           "\n\n1. Ingresar Kilometros: "
                           "\n\n2. Ingresar Precio de Vuelos: (Aerolineas=y, Latam=z)"
                           "\n     		-Precio vuelo Aerolineas: "
@@ -41,8 +42,7 @@ int main()
                           "\n       d) Precio unitario: "
                           "\n       e) La diferencia de precio es: "
                           "\n\n5. Carga forzada de datos"
-                          "\n\n6. Salir\n\n"
-        		 	 	  "\nPor favor, ingrese que accion desea realizar: ", "No es una opcion valida\n",1,6,3);
+                          "\n\n6. Salir\n\n", "No es una opcion valida\n",1,6,3);
 
     if(!respuesta) //si es cero es cuando yo tengo que entrar, al hacerlo negado se transforma en 1, que seria verdadero
     {

@@ -42,7 +42,7 @@ int main()
                           "\n       e) La diferencia de precio es: "
                           "\n\n5. Carga forzada de datos"
                           "\n\n6. Salir\n\n"
-        		 	 	  "\nPor favor, ingrese que accion desea realizar: ", "No es una opcion valida\n",1,6,3);
+        		 	 	  "\n     Por favor, ingrese que accion desea realizar: ", "No es una opcion valida\n",1,6,3);
 
     if(!respuesta) //si es cero es cuando yo tengo que entrar, al hacerlo negado se transforma en 1, que seria verdadero
     {
