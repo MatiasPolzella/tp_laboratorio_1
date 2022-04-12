@@ -22,7 +22,7 @@ int main()
 
     //la funcion devuelve un numero negativo (-1) para indicar que no pudo obtener un numero, y un cero para indicar que si lo obtuvo
     do{
-        respuesta = utn_getNumeroEntero(&opcion,"\n*************** MENU PRINCIPAL ***************\n "
+        respuesta = utn_getNumeroEntero(&opcion,"\n******************** MENU PRINCIPAL ********************\n\n "
         										"\n\n1. Ingresar Kilometros: "
                           	  	  	  	  	    "\n\n2. Ingresar Precio de Vuelos: (Aerolineas=y, Latam=z)"
         								  	  	"\n     	-Precio vuelo Aerolineas: "
