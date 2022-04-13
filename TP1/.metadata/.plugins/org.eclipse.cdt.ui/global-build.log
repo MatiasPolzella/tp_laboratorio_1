@@ -1,4 +1,4 @@
-00:30:47 **** Incremental Build of configuration Debug for project TP1 ****
+01:07:11 **** Incremental Build of configuration Debug for project TP1 ****
 Info: Internal Builder is used for build
-gcc -o TP1.exe "src\\TP1.o" "src\\validaciones.o" 
-Info: Nothing to build for TP1
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\costos.o" "..\\src\\costos.c" 
+gcc -o TP1.exe "src\\TP1.o" "src\\costos.o" "src\\validaciones.o" 

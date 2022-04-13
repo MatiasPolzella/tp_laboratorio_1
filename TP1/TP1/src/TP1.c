@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "validaciones.h"
+#include "costos.h"
 
 int main()
 {
@@ -18,6 +19,8 @@ int main()
 
     int opcion;
     int respuesta; //aca guardo lo que utn_getNumeroEntero() me va a retornar
+    int respuestaKM;
+    float kilometrosIngresados;
 
 
     //la funcion devuelve un numero negativo (-1) para indicar que no pudo obtener un numero, y un cero para indicar que si lo obtuvo
@@ -55,7 +58,15 @@ int main()
         {
             case 1: /*INGRESAR KILOMETROS*/
 
-            printf("Entre al caso 1\n");
+            	respuestaKM = utn_getNumeroFloat(&kilometrosIngresados,"\nIngrese cantidad de kilometros\n","\nError, vuelva a ingresar los kilometros\n",1,13000,3);
+            	if(respuestaKM == 0)
+            	   {
+            	       printf("\nUsted ha ingresado: %.3f Kilometros",kilometrosIngresados);
+            	    }
+            	    else
+            	    {
+            	    	printf("Error");
+            	    }
 
             break;
 
@@ -83,6 +94,7 @@ int main()
 
         }
     }
+
     }while(opcion != 6);
 
     return 0;
