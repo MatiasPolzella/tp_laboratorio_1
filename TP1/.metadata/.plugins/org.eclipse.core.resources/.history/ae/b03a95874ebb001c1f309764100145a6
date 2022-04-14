@@ -1,10 +1,10 @@
 /*
  ============================================================================
-
- Nombre: Trabajo Practico 1 - Agencia de Viajes
- Autor: Matias Polzella
- Comision: 1H
-
+ Name        : Trabajo Practico 1 - Agencia de Viajes
+ Author      : Matias Polzella
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
  ============================================================================
  */
 
@@ -23,7 +23,7 @@ int main()
     float kilometrosIngresados;
 
 
-    //vamos a hacer esto de manera repetitiva, hasta tanto y en cuanto el usuario ingrese la opcion de salida que es la 6
+    //la funcion devuelve un numero negativo (-1) para indicar que no pudo obtener un numero, y un cero para indicar que si lo obtuvo
     do{
         respuesta = utn_getNumeroEntero(&opcion,"\n*************** MENU PRINCIPAL ***************\n "
         										"\n\n1. Ingresar Kilometros: "
@@ -52,7 +52,7 @@ int main()
         										"\n\n6. Salir\n"
         										"\nPor favor, ingrese que accion desea realizar: ", "No es una opcion valida\n",1,6,3);
 
-    if(respuesta == 0) //si estoy en este caso, quiere decir que el usuario ingresó una respuesta valida
+    if(respuesta == 0) //si es cero es cuando yo tengo que entrar, al hacerlo negado se transforma en 1, que seria verdadero (otra opcion: respues == 0)
     {
         switch(opcion)
         {

@@ -1,10 +1,10 @@
 /*
  ============================================================================
-
- Nombre: Trabajo Practico 1 - Agencia de Viajes
- Autor: Matias Polzella
- Comision: 1H
-
+ Name        : Trabajo Practico 1 - Agencia de Viajes
+ Author      : Matias Polzella
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
  ============================================================================
  */
 
@@ -23,8 +23,8 @@ int main()
     float kilometrosIngresados;
 
 
-    //vamos a hacer esto de manera repetitiva, hasta tanto y en cuanto el usuario ingrese la opcion de salida que es la 6
-    do{
+
+    do{ //vamos a hacer esto de manera repetitiva, hasta tanto y en cuanto el usuario ingrese la opcion de salida que es la 6
         respuesta = utn_getNumeroEntero(&opcion,"\n*************** MENU PRINCIPAL ***************\n "
         										"\n\n1. Ingresar Kilometros: "
                           	  	  	  	  	    "\n\n2. Ingresar Precio de Vuelos: (Aerolineas=y, Latam=z)"
