@@ -3,6 +3,9 @@
 #ifndef VALIDACIONES_H_
 #define VALIDACIONES_H_
 
+#define EXITO 0
+#define ERROR -1
+
 /// @fn  utn_getNumeroEntero
 /// @brief Solicita un numero entero al usuario, lo valida, verifica y devuelve el resultado
 /// @param pResultado Puntero al resultado, alli se dejara el numero ingresado por el usuario
@@ -27,7 +30,6 @@ int utn_getNumeroFloat(float* pResultado, char* mensaje, char* mensajeError,floa
 
 /// @fn int utn_getCaracter
 /// @brief Solicita una letra al usuario, la valida, verifica y devuelve el resultado
-///
 /// @param pResultado Puntero al resultado, alli se dejara el numero ingresado por el usuario
 /// @param mensaje Es el mensaje a ser mostrado
 /// @param mensajeError Es el mensaje mostrado en caso de error
