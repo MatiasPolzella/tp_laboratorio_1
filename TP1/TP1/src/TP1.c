@@ -1,8 +1,9 @@
 /*
  ============================================================================
 
- Nombre: Trabajo Practico N°1 - Agencia de Viajes
- Autor: Matias Polzella
+  	  Trabajo Practico N°1 - Agencia de Viajes
+
+ Nombre: Matias Polzella
  Comision: 1H
 
  ============================================================================
@@ -37,6 +38,7 @@ int main(void) {
 	float bitcoinLatam;
 	float priceUnitAA;
 	float priceUnitLatam;
+
 	//Carga Forzada
 	float forcedDataUploadAA = 162965;
 	float forcedDataUploadLatam = 159339;
@@ -49,7 +51,7 @@ int main(void) {
 		printf("\n            MENU PRINCIPAL                \n");
 	    printf("**********************************************\n");
 		printf("1. Ingresar Kilometros: (km=%d)\n",numberOfKilometers);
-		printf("2. Ingresar Precio de Vuelos: (\n   Aerolineas=$ %.2f $, Latam=$ %.2f\n", valueAA, valueLatam);
+		printf("2. Ingresar Precio de Vuelos: \n   Aerolineas=$ %.2f $, Latam=$ %.2f\n", valueAA, valueLatam);
 		printf("3. Calcular todos los costos:\n");
 		printf("4. Informar Resultados\n");
 		printf("5. Carga forzada de datos\n");
@@ -65,7 +67,7 @@ int main(void) {
 			if(!getNumberInt(&numberOfKilometers, "Ingrese la cantidad de Km del viaje que desea realizar (recuerde que las opciones validas"
 			                                      " son entre 3000 y 15000km): \n", "Valor inválido. Intente nuevamente\n", 3000, 15000, 2))
 			{
-				ok = 0; //si salio bien la validacion
+				ok = 0; // 0 =  que los datos ingresados son correctoss. != 0 no se pudo realizar la operacion
 			}
 			else
 			{
@@ -77,19 +79,19 @@ int main(void) {
 
 			if(!getNumberFloat(&valueAA, "Precio vuelo Aerolineas:\n" , "Error. El Rango de precios disponibles ronda los 2500 a 150000\n", 2500, 1500000, 2))
 			{
-				ok = 0; //si salio bien la validacion
+				ok = 0;
 			}
 			else
 			{
-				ok = 2; //si salio mal la validacion
+				ok = 2;
 			}
-			if(!getNumberFloat(&valueLatam, "Precio vuelo Latam:\n" , "Error. El Rango de precios disponibles ronda los 2500 a 150000\n", 2500, 1500000, 3))
+			if(!getNumberFloat(&valueLatam, "Precio vuelo Latam:\n" , "Error. El Rango de precios disponibles ronda los 2500 a 150000\n", 2500, 1500000, 2))
 			{
-				ok = 0; //si salio bien la validacion
+				ok = 0;
 			}
 			else
 			{
-				ok = 3; //si salio mal la validacion
+				ok = 3;
 			}
 			break;
 
@@ -98,29 +100,32 @@ int main(void) {
 			switch (ok)
 			{
 				case 0:
-					//realizo los calculos para aerolineas
-					if(!calculoPrecio(valueAA ,DEBIT ,&debitAA, BTCPRICE) && !calculoPrecio(valueAA,CREDIT , &creditAA, BTCPRICE)
-					   && !calculoPrecio(valueAA,BTC, &bitcoinAA, BTCPRICE))
+
+					if(!getPrice(valueAA ,DEBIT ,&debitAA, BTCPRICE) && !getPrice(valueAA,CREDIT, &creditAA, BTCPRICE)
+					   && !getPrice(valueAA,BTC, &bitcoinAA, BTCPRICE))
 					{
-						priceUnitAA=valueAA/numberOfKilometers;
+						priceUnitAA = valueAA / numberOfKilometers;
 					}
-					//realizo los calculos para latam
-					if(!calculoPrecio(valueLatam ,DEBIT ,&debitLatam, BTCPRICE) && !calculoPrecio(valueLatam,CREDIT , &creditLatam, BTCPRICE)
-					   && !calculoPrecio(valueLatam,BTC, &bitcoinLatam, BTCPRICE))
+
+					if(!getPrice(valueLatam ,DEBIT ,&debitLatam, BTCPRICE) && !getPrice(valueLatam,CREDIT , &creditLatam, BTCPRICE)
+					   && !getPrice(valueLatam,BTC, &bitcoinLatam, BTCPRICE))
 					{
-						priceUnitLatam=valueLatam/numberOfKilometers;
+						priceUnitLatam = valueLatam / numberOfKilometers;
 					}
 					break;
+
 				case 1:
-					//mensaje de error si hay un dato no valido en los km del vuelo
+
 					printf("Se ha producido un error al ingresar los KM. Volverá al menu principal\n");
 					break;
+
 				case 2:
-					//mensaje de error si hay dificultades con el precio de AA
+
 					printf("se ha producido un error al intentar cargar el precio de Aerolineas. Volverá al menu principal\n");
 					break;
+
 				case 3:
-					//mensaje de error si hay dificultades con el precio de LA
+
 					printf("se ha producido un error al intentar cargar el precio de Latam. Volverá al menu principal\n");
 					break;
 			}
@@ -128,7 +133,7 @@ int main(void) {
 
 		case 4: /*INFORMAR RESULTADOS*/
 
-			if (ok==0)
+			if (ok==0) //es decir, validamos si el usuario cargó los datos previamente
 			{
 				reportOfResults(numberOfKilometers,valueAA, valueLatam, debitAA, creditAA, bitcoinAA, priceUnitAA, debitLatam, creditLatam, bitcoinLatam, priceUnitLatam);
 			}
@@ -140,15 +145,15 @@ int main(void) {
 
 		case 5: /*CARGA FORZADA DE DATOS*/
 
-			calculoPrecio(forcedDataUploadAA ,DEBIT ,&debitAA, BTCPRICE);
-			calculoPrecio(forcedDataUploadAA,CREDIT , &creditAA, BTCPRICE);
-			calculoPrecio(forcedDataUploadAA,BTC, &bitcoinAA, BTCPRICE);
-			priceUnitAA = forcedDataUploadAA /forcedKMLoad;
+			getPrice(forcedDataUploadAA,DEBIT ,&debitAA, BTCPRICE);
+			getPrice(forcedDataUploadAA,CREDIT, &creditAA, BTCPRICE);
+			getPrice(forcedDataUploadAA,BTC, &bitcoinAA, BTCPRICE);
+			priceUnitAA = forcedDataUploadAA / forcedKMLoad;
 
-			calculoPrecio(forcedDataUploadLatam ,DEBIT ,&debitLatam, BTCPRICE);
-			calculoPrecio(forcedDataUploadLatam,CREDIT , &creditLatam, BTCPRICE);
-			calculoPrecio(forcedDataUploadLatam,BTC, &bitcoinLatam, BTCPRICE);
-			priceUnitLatam = forcedDataUploadLatam/forcedKMLoad;
+			getPrice(forcedDataUploadLatam ,DEBIT ,&debitLatam, BTCPRICE);
+			getPrice(forcedDataUploadLatam,CREDIT , &creditLatam, BTCPRICE);
+			getPrice(forcedDataUploadLatam,BTC, &bitcoinLatam, BTCPRICE);
+			priceUnitLatam = forcedDataUploadLatam/ forcedKMLoad;
 
 			reportOfResults(forcedKMLoad,forcedDataUploadAA, forcedDataUploadLatam, debitAA, creditAA,
 			bitcoinAA, priceUnitAA, debitLatam, creditLatam, bitcoinLatam, priceUnitLatam);

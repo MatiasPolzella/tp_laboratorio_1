@@ -4,22 +4,37 @@
 #define CALCULOS_H_
 
 
-/**
- * @fn int calculoPrecio(float, int, float*, float)
- * @brief Funcion que realiza los cálculos para los viajes
- *
- * @pre
- * @post
- * @param costo Es el precio del vuelo a calcular los descuentos
- * @param formaPago Se recibe 0 pago con Débito, 1 con crédito y 2 con BTC
- * @param precio puntero que recibe el precio con los descuentos o recargos segun la forma de pago
- * @param cotizacionBtc Valor del BTC para poder realizar el cálculo
- * @return Devuleve 0 si pudo realizar el cálculo y -1 en caso de error
- */
-int calculoPrecio(float costo,int formaPago, float * precio, float cotBtc);
+/// @fn  getPrice
+/// @brief Realizará los calculos necesarios para obtener el valor del viaje en: debito, credito y Bitcoin
+/// @param cost Precio del vuelo para calcular los descuentos
+/// @param payment Recibe 0 pago con Débito, 1 para crédito y 2 con BTC
+/// @param price Puntero que recibe el precio con los descuentos (o recargos) segun la forma de pago
+/// @param BTCPrice Es el valor del Bitcoin para poder realizar el calculo
+/// @return En caso de exito (0), en caso de error (-1)
+int getPrice(float cost, int payment, float *price, float BTCPrice);
 
+/// @fn int reportOfResults(int, float, float, float, float, float, float, float, float, float, float)
+/// @brief Nos muestra el informe de resultados con los precios ya cargados
+/// @param distance
+/// @param priceAA
+/// @param debitAA
+/// @param creditAA
+/// @param BTCAA
+/// @param priceUnitAA
+/// @param priceLatam
+/// @param debitLatam
+/// @param creditLatam
+/// @param BTCLatam
+/// @param priceUnitLatam
+/// @return el informe con los resultados
+int reportOfResults(int distance, float priceAA, float debitAA, float creditAA, float BTCAA, float priceUnitAA, float priceLatam,float debitLatam,float creditLatam,float BTCLatam, float priceUnitLatam);
 
-int reportOfResults(int distancia,float precio1, float precio2, float debito1, float credito1, float btc1, float unitario1, float debito2, float credito2, float btc2, float unitario2);
+/// @fn getPriceDifference
+/// @brief Esta funcion nos permitirá calcular la diferencia de precios entre Aerolineas Argentinas y Latam
+/// @param operator1
+/// @param operator2
+/// @return La direrencia de precios mediante una resta
+float getPriceDifference(float operator1, float operator2);
 
 
 #endif /* CALCULOS_H_ */

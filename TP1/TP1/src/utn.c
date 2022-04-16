@@ -3,9 +3,31 @@
 #include <string.h>
 #include "utn.h"
 
+
+/// @fn int isNumeric
+/// @brief Recibe una cadena, recorre todos los caracteres de la cadena, y si alguno no es numerico, el bucle termina y la varable retorno quedara cargada en -1
+/// y devuelve 1 en el caso de que el texto este compuesto solo por numeros
+/// @param cadena
+/// @return Devuelve 1 en el caso que los caracteres sean todos numericos
 static int isNumeric(char* cadena);
+
+/// @fn int myGets
+/// @brief Valida desde​ stdin​ hasta​​ que​ encuentra​ ​un​ '\n' o hasta​​ que​​ haya​​ copiado​ en​ ​cadena un​ máximo​ de longitud de caracteres
+/// @param cadena
+/// @param longitud Tamaño de la cadena
+/// @return En caso de exito (0), en caso de error (-1)
 static int myGets(char* cadena, int longitud);
+
+/// @fn int getInt
+/// @brief Valida si la cadena es numerica
+/// @param pResultado Puntero donde se alojara el resultado de la funcion
+/// @return En caso de exito (0), en caso de error (-1)
 static int getInt(int * pResultado);
+
+/// @fn int getFloat(float*)
+/// @brief Pide un texto al usuario, lo almacena como cadena, valida y convierte el texto a numero y lo devuelve como float
+/// @param pResultado pResultado Puntero donde se alojara el resultado de la funcion
+/// @return En caso de exito (0), en caso de error (-1)
 static int getFloat(float* pResultado);
 
 
@@ -37,7 +59,7 @@ static int isNumeric(char* cadena)
 int getNumberInt(int* pResultado, char* mensaje, char* mensajeError, int minimo, int maximo, int reintentos)
 {
 	int bufferInt;
-	int retorno = -1; //lo cargo de ante mano con el
+	int retorno = -1; //lo cargo de ante mano con el error
 
 	if (pResultado != NULL && mensaje != NULL && mensajeError != NULL && minimo < maximo && reintentos >= 0)
 	{
@@ -119,7 +141,6 @@ static int getInt(int * pResultado)
 	}
 	return retorno;
 }
-
 
 
 static int getFloat(float* pResultado)

@@ -1,0 +1,32 @@
+
+
+#ifndef CALCULOS_H_
+#define CALCULOS_H_
+
+
+/**
+ * @fn int calculoPrecio(float, int, float*, float)
+ * @brief Funcion que realiza los cálculos para los viajes
+ * @param costo Es el precio del vuelo a calcular los descuentos
+ * @param formaPago Se recibe 0 pago con Débito, 1 con crédito y 2 con BTC
+ * @param precio puntero que recibe el precio con los descuentos o recargos segun la forma de pago
+ * @param cotizacionBtc Valor del BTC para poder realizar el cálculo
+ * @return Devuleve 0 si pudo realizar el cálculo y -1 en caso de error
+ */
+int getPrice(float cost, int payment, float * price, float BTCPrice);
+
+
+int reportOfResults(float priceAA, float priceLatam, float debitAA, float creditAA, float BTCAA, float BTCLatam, float priceUnitAA, float priceUnitLatam,
+		            float debitLatam, float creditLatam, int distance);
+
+/**
+ * @fn calculoDiferencia
+ * @brief Funcion que nos calculara la diferencia de precios entre ambas aerolineas
+ * @param operator1
+ * @param operator2
+ * @return va a devolvernos la diferencia de precio mediante una resta
+ */
+float getPriceDifference(float operator1, float operator2);
+
+
+#endif /* CALCULOS_H_ */
