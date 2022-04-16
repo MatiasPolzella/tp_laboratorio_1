@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "costos.h"
+
+float payThroughDebit(float *valorVuelo,float *descuentoAplicado)
+{
+   float retorno;
+
+   //descuentoAplicado= valorVuelo * 10 / 100;
+   //retorno = valorVuelo - descuentoAplicado;
+
+   valorVuelo = descuentoAplicado * 10 / 100;
+   retorno = valorVuelo - descuentoAplicado;
+
+    return retorno;
+}
+
+
+float payThrougCredit(float base, float impuesto)
+{
+  float retorno;
+
+  retorno = base + (base * impuesto);
+
+  return retorno;
+}
+
+
+float payThroughBTC(float valorVuelo, double precioBTC)
+{
+  float retorno;
+  precioBTC = 4598739; //1 BTC = 4598739 Pesos Argentinos
+
+  retorno = valorVuelo / precioBTC;
+
+  return retorno;
+}
+
+
+
+
+
+
+/*	FUNCION PARA MOSTRAR PRECIO POR KILOMETRO (PRECIO UNITARIO):
+
+importeIngresado * kmIngresado
+
+	FUNCION PARA MOSTRAR DIFERENCIA DE PRECIO INGRESADA (LATAM - AEROLINEAS):
+
+
+
+*/

@@ -1,0 +1,47 @@
+
+
+#ifndef VALIDACIONES_H_
+#define VALIDACIONES_H_
+
+#define EXITO 0
+#define ERROR -1
+
+/// @fn  getInteger
+/// @brief Solicita un numero entero al usuario, lo valida, verifica y devuelve el resultado
+/// @param pResultado Puntero al resultado, alli se dejara el numero ingresado por el usuario
+/// @param mensaje Es el mensaje a ser mostrado
+/// @param mensajeError Es el mensaje mostrado en caso de error
+/// @param minimo Valor minimo aceptado
+/// @param maximo Valor maximo aceptado
+/// @param reintentos Cantidad de reintentos en caso de error
+/// @return En caso de exito (0), en caso de error (-1)
+int getInteger(int* pResultado, char* mensaje, char* mensajeError,int minimo, int maximo, int reintentos);
+
+/// @fn geFloat
+/// @brief Solicita un numero entero al usuario, lo valida, verifica y devuelve el resultado
+/// @param pResultado Puntero al resultado, alli se dejara el numero ingresado por el usuario
+/// @param mensaje Es el mensaje a ser mostrado
+/// @param mensajeError Es el mensaje mostrado en caso de error
+/// @param minimo Valor minimo aceptado
+/// @param maximo Valor maximo aceptado
+/// @param reintentos Cantidad de reintentos en caso de error
+/// @return En caso de exito (0), en caso de error (-1)
+int getFloat(float* pResultado, char* mensaje, char* mensajeError,float minimo, float maximo, int reintentos);
+
+
+/// @fn isNumeric
+/// @brief Recibe una cadena, recorre todos los caracteres de la cadena, y si alguno no es numerico, el bucle termina y la varable retorno quedara cargada en -1
+/// y devuelve 1 en el caso de que el texto este compuesto solo por numeros
+/// @param cadena
+/// @return Devuelve 1 en el caso que los caracteres sean todos numericos
+static int isNumeric(char* cadena);
+
+/// @fn getInt
+/// @brief Pide un texto al usuario, lo almacena como cadena, valida y convierte el texto a numero y lo devuelve como int
+/// @param pResultado
+/// @return
+static int getInt(int* pResultado);
+
+#endif /* VALIDACIONES_H_ */
+
+

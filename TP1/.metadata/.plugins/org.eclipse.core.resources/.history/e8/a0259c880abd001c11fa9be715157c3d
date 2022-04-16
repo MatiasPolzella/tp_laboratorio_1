@@ -1,0 +1,27 @@
+
+#ifndef COSTOS_H_
+#define COSTOS_H_
+
+
+/// @fn float payThroughDebit
+/// @brief Calcula el costo de pagar con Tarjeta de Debito aplicando un descuento del 10%
+/// @param valorVuelo
+/// @return Devuelve el nuevo valor del viaje en base al descuento aplicado
+float payThroughDebit(float valorVuelo, float descuentoAplicado);
+
+/// @fn float payThrougCredit
+/// @brief Calcula el costo de pagar con Tarjeta de Credito aplicando un aumento del 25%
+/// @param base
+/// @param impuesto
+/// @return Devuelve el nuevo valor del viaje en base al aumento aplicado
+float payThrougCredit (float base, float impuesto);
+
+/// @fn float payThroughBTC(float, double)
+/// @brief Calcula el costo de pagar con Bitcoins
+/// @param valorVuelo
+/// @param precioBTC
+/// @return Devuelve el nuevo valor del viaje en Bitcoins, dividiendo el valor del vuelo ingresado por el usuario por la cotizacion actual del BTC
+float payThroughBTC(float valorVuelo, double precioBTC);
+
+
+#endif /* COSTOS_H_ */

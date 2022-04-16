@@ -1,0 +1,20 @@
+
+
+#ifndef SUBMENU_H_
+#define SUBMENU_H_
+
+/// @fn void ingresoPrecios
+/// @brief
+///
+/// @param precioAerolineas
+/// @param precioLatam
+void enterPrice(float *precioAerolineas, float *precioLatam);
+
+/// @fn void ingresoKilometros
+/// @brief Evaluamos el
+///
+/// @param kilometrosIngresados
+void ingresoKilometros(float *kilometrosIngresados);
+
+
+#endif /* SUBMENU_H_ */
