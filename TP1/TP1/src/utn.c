@@ -27,8 +27,9 @@ static int getInt(int * pResultado);
 /// @fn int getFloat(float*)
 /// @brief Pide un texto al usuario, lo almacena como cadena, valida y convierte el texto a numero y lo devuelve como float
 /// @param pResultado pResultado Puntero donde se alojara el resultado de la funcion
-/// @return En caso de exito (0), en caso de error (-1)
+/// @return En caso de exito (0), en caso de error (-1
 static int getFloat(float* pResultado);
+
 
 
 static int isNumeric(char* cadena)
@@ -55,7 +56,15 @@ static int isNumeric(char* cadena)
 	} return retorno;
 }
 
-
+/// @fn getNumberInt
+/// @brief Solicita un numero entero al usuario, lo valida, verifica y devuelve el resultado
+/// @param pResultado Puntero al resultado, alli se dejara el numero ingresado por el usuario
+/// @param mensaje Es el mensaje a ser mostrado
+/// @param mensajeError Es el mensaje mostrado en caso de error
+/// @param minimo Valor minimo aceptado
+/// @param maximo Valor maximo aceptado
+/// @param reintentos Cantidad de reintentos en caso de error
+/// @return En caso de exito (0), en caso de error (-1)
 int getNumberInt(int* pResultado, char* mensaje, char* mensajeError, int minimo, int maximo, int reintentos)
 {
 	int bufferInt;
@@ -83,6 +92,15 @@ int getNumberInt(int* pResultado, char* mensaje, char* mensajeError, int minimo,
 	return retorno;
 }
 
+/// @fn getNumberFloat
+/// @brief Solicita un numero decimal al usuario, lo valida, verifica y devuelve el resultado
+/// @param pResultado Puntero al resultado, alli se dejara el numero ingresado por el usuario
+/// @param mensaje Es el mensaje a ser mostrado
+/// @param mensajeError Es el mensaje mostrado en caso de error
+/// @param minimo Valor minimo aceptado
+/// @param maximo Valor maximo aceptado
+/// @param reintentos Cantidad de reintentos en caso de error
+/// @return En caso de exito (0), en caso de error (-1)
 
 int getNumberFloat(float* pResultado, char* mensaje, char* mensajeError, float minimo, float maximo, int reintentos)
 {
@@ -141,6 +159,7 @@ static int getInt(int * pResultado)
 	}
 	return retorno;
 }
+
 
 
 static int getFloat(float* pResultado)

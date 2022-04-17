@@ -9,11 +9,11 @@
  ============================================================================
  */
 
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "utn.h"
 #include "calculos.h"
+
 
 #define DEBIT 0
 #define CREDIT 1
@@ -40,7 +40,7 @@ int main(void) {
 	float priceUnitLatam;
 
 	//Carga Forzada
-	float forcedDataUploadAA = 162965;
+	float forcedDataUploadAA = 162965 ;
 	float forcedDataUploadLatam = 159339;
 	float forcedKMLoad = 7090;
 
@@ -51,7 +51,7 @@ int main(void) {
 		printf("\n            MENU PRINCIPAL                \n");
 	    printf("**********************************************\n");
 		printf("1. Ingresar Kilometros: (km=%d)\n",numberOfKilometers);
-		printf("2. Ingresar Precio de Vuelos: \n   Aerolineas=$ %.2f $, Latam=$ %.2f\n", valueAA, valueLatam);
+		printf("2. Ingresar Precio de Vuelos: (\n   Aerolineas=$ %.2f $, Latam=$ %.2f\n", valueAA, valueLatam);
 		printf("3. Calcular todos los costos:\n");
 		printf("4. Informar Resultados\n");
 		printf("5. Carga forzada de datos\n");
@@ -77,7 +77,7 @@ int main(void) {
 
 		case 2: /*INGRESAR PRECIO DE VUELOS*/
 
-			if(!getNumberFloat(&valueAA, "Precio vuelo Aerolineas:\n" , "Error. El Rango de precios disponibles ronda los 2500 a 150000\n", 2500, 1500000, 2))
+			if(!getNumberFloat(&valueAA, "Precio vuelo Aerolineas:\n" , "Valor inválido. Intente nuevamente\n", 2500, 1500000, 2))
 			{
 				ok = 0;
 			}
@@ -85,7 +85,7 @@ int main(void) {
 			{
 				ok = 2;
 			}
-			if(!getNumberFloat(&valueLatam, "Precio vuelo Latam:\n" , "Error. El Rango de precios disponibles ronda los 2500 a 150000\n", 2500, 1500000, 2))
+			if(!getNumberFloat(&valueLatam, "Precio vuelo Latam:\n" , "Valor inválido. Intente nuevamente\n", 2500, 1500000, 2))
 			{
 				ok = 0;
 			}
@@ -101,10 +101,10 @@ int main(void) {
 			{
 				case 0:
 
-					if(!getPrice(valueAA ,DEBIT ,&debitAA, BTCPRICE) && !getPrice(valueAA,CREDIT, &creditAA, BTCPRICE)
+					if(!getPrice(valueAA ,DEBIT ,&debitAA, BTCPRICE) && !getPrice(valueAA,CREDIT , &creditAA, BTCPRICE)
 					   && !getPrice(valueAA,BTC, &bitcoinAA, BTCPRICE))
 					{
-						priceUnitAA = valueAA / numberOfKilometers;
+						priceUnitAA =valueAA / numberOfKilometers;
 					}
 
 					if(!getPrice(valueLatam ,DEBIT ,&debitLatam, BTCPRICE) && !getPrice(valueLatam,CREDIT , &creditLatam, BTCPRICE)
@@ -145,8 +145,8 @@ int main(void) {
 
 		case 5: /*CARGA FORZADA DE DATOS*/
 
-			getPrice(forcedDataUploadAA,DEBIT ,&debitAA, BTCPRICE);
-			getPrice(forcedDataUploadAA,CREDIT, &creditAA, BTCPRICE);
+			getPrice(forcedDataUploadAA ,DEBIT ,&debitAA, BTCPRICE);
+			getPrice(forcedDataUploadAA,CREDIT , &creditAA, BTCPRICE);
 			getPrice(forcedDataUploadAA,BTC, &bitcoinAA, BTCPRICE);
 			priceUnitAA = forcedDataUploadAA / forcedKMLoad;
 
@@ -155,7 +155,7 @@ int main(void) {
 			getPrice(forcedDataUploadLatam,BTC, &bitcoinLatam, BTCPRICE);
 			priceUnitLatam = forcedDataUploadLatam/ forcedKMLoad;
 
-			reportOfResults(forcedKMLoad,forcedDataUploadAA, forcedDataUploadLatam, debitAA, creditAA,
+		    reportOfResults(forcedKMLoad,forcedDataUploadAA, forcedDataUploadLatam, debitAA, creditAA,
 			bitcoinAA, priceUnitAA, debitLatam, creditLatam, bitcoinLatam, priceUnitLatam);
 			break;
 
@@ -168,5 +168,4 @@ int main(void) {
 
 	return 0;
 }
-
 
