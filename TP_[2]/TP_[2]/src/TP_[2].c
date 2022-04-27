@@ -12,6 +12,6 @@
 #include <stdlib.h>
 
 int main(void) {
-	puts("!!!prueba tp2!!!"); /* prints !!!Hello World!!! */
+	puts("!!!probando a ver si anda bien el repo!!!"); /* prints !!!Hello World!!! */
 	return EXIT_SUCCESS;
 }
